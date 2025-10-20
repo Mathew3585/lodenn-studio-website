@@ -1,0 +1,90 @@
+# Configuration Nginx pour Lodenn Studio
+# À copier dans: /etc/nginx/sites-available/lodennstudio
+
+# Redirection www vers non-www
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.lodennstudio.com;
+    return 301 https://lodennstudio.com$request_uri;
+}
+
+# Configuration principale
+server {
+    listen 80;
+    listen [::]:80;
+    server_name lodennstudio.com;
+
+    # Les certificats SSL seront ajoutés automatiquement par Certbot
+    # Ne décommentez pas ces lignes, Certbot s'en occupe:
+    # listen 443 ssl http2;
+    # listen [::]:443 ssl http2;
+    # ssl_certificate /etc/letsencrypt/live/lodennstudio.com/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/lodennstudio.com/privkey.pem;
+
+    # Logs
+    access_log /var/log/nginx/lodennstudio-access.log;
+    error_log /var/log/nginx/lodennstudio-error.log;
+
+    # Proxy vers Next.js
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    # Gestion des fichiers statiques Next.js
+    location /_next/static {
+        proxy_pass http://localhost:3000;
+        proxy_cache_valid 200 60m;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # Images optimisées Next.js
+    location /_next/image {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Headers de sécurité
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    # Limite de taille des uploads (pour le formulaire de contact)
+    client_max_body_size 10M;
+}
+
+# Instructions d'installation:
+# 1. Copiez ce fichier dans /etc/nginx/sites-available/lodennstudio
+#    sudo nano /etc/nginx/sites-available/lodennstudio
+#
+# 2. Créez le lien symbolique:
+#    sudo ln -s /etc/nginx/sites-available/lodennstudio /etc/nginx/sites-enabled/
+#
+# 3. Supprimez la config par défaut si nécessaire:
+#    sudo rm /etc/nginx/sites-enabled/default
+#
+# 4. Testez la configuration:
+#    sudo nginx -t
+#
+# 5. Redémarrez Nginx:
+#    sudo systemctl restart nginx
+#
+# 6. Une fois les DNS configurés, ajoutez SSL avec Certbot:
+#    sudo certbot --nginx -d lodennstudio.com -d www.lodennstudio.com
