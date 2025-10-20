@@ -1,0 +1,143 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "aetheris": "Aetheris",
+    "about": "À Propos",
+    "contact": "Contact"
+  },
+  "home": {
+    "meta": {
+      "title": "Accueil",
+      "description": "Studio de jeux vidéo indépendant basé en Bretagne. Créateurs d'Aetheris, un jeu de survie et d'exploration stylisé dans un monde d'îles flottantes."
+    },
+    "hero": {
+      "subtitle": "Studio de Jeux Vidéo Indépendant",
+      "description": "Créateurs d'univers immersifs où aventure, exploration et partage prennent vie",
+      "discoverAetheris": "Découvrir Aetheris",
+      "ourStudio": "Notre Studio",
+      "scrollText": "Découvrez plus"
+    },
+    "aetherisSection": {
+      "badge": "EN DÉVELOPPEMENT",
+      "tagline": "Survivez dans les cieux",
+      "mainTitle": "Un monde d'îles flottantes à explorer",
+      "mainDescription": "Explorez un univers fantastique où chaque île cache ses secrets. Construisez votre dirigeable, récoltez des ressources et survivez dans les cieux.",
+      "buildBase": "Construisez votre base",
+      "discoverMysteries": "Découvrez les mystères",
+      "discoverGame": "Découvrir le Jeu"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "À Propos",
+      "description": "Petit studio indie breton passionné par la création d'univers immersifs. Découvrez notre équipe et notre histoire."
+    },
+    "hero": {
+      "badge": "À PROPOS",
+      "title": "Qui sommes-nous ?",
+      "subtitle": "Petit studio indie breton passionné par la création d'univers immersifs"
+    },
+    "story": {
+      "founded": "Fondé en 2025",
+      "location": "Bretagne, France",
+      "title": "Notre Histoire",
+      "paragraph1": "est né d'une passion pour le jeu vidéo et d'une envie de créer des expériences uniques.",
+      "paragraph2": "Basés en Bretagne, nous développons",
+      "paragraph2b": ", notre premier jeu qui incarne notre vision : des mondes immersifs où l'exploration, la créativité et le partage prennent vie.",
+      "paragraph3": "En tant que studio indépendant, nous avons la liberté de suivre notre vision et de créer des jeux qui nous passionnent vraiment."
+    },
+    "team": {
+      "title": "L'Équipe",
+      "subtitle": "Une petite équipe passionnée qui travaille d'arrache-pied sur",
+      "member1": {
+        "name": "Membre 1",
+        "role": "Game Designer & Développeur"
+      },
+      "member2": {
+        "name": "Membre 2",
+        "role": "Artiste 2D/3D"
+      },
+      "member3": {
+        "name": "Membre 3",
+        "role": "Développeur"
+      },
+      "member4": {
+        "name": "Membre 4",
+        "role": "Sound Designer"
+      },
+      "hiring": "Nous sommes en pleine croissance et toujours à la recherche de talents qui partagent notre vision !",
+      "contactUs": "Nous contacter"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Contactez Lodenn Studio. Une question sur Aetheris, une collaboration ou simplement dire bonjour ? Nous sommes là pour vous écouter."
+    },
+    "hero": {
+      "badge": "CONTACT",
+      "title": "Parlons ensemble",
+      "subtitle": "Une question sur Aetheris, une collaboration ou simplement dire bonjour ?"
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer"
+    },
+    "social": {
+      "title": "Rejoignez notre communauté",
+      "subtitle": "Suivez-nous sur les réseaux sociaux pour ne rien manquer"
+    },
+    "faq": {
+      "title": "Questions Fréquentes"
+    }
+  },
+  "aetheris": {
+    "meta": {
+      "title": "Aetheris - Jeu de Survie",
+      "description": "Aetheris - Un jeu de survie et d'exploration stylisé dans un monde d'îles flottantes. Construisez votre dirigeable, explorez les cieux et découvrez les mystères."
+    },
+    "hero": {
+      "badge": "JEU EN DÉVELOPPEMENT",
+      "subtitle": "Survie • Exploration • Crafting",
+      "description": "Explorez un monde fantastique d'îles flottantes, construisez votre dirigeable et survivez dans les cieux.",
+      "wishlist": "Ajouter à votre wishlist",
+      "trailer": "Voir le Trailer"
+    },
+    "features": {
+      "survive": {
+        "title": "Survivez",
+        "description": "Les îles flottantes regorgent de ressources à récolter, mais attention aux dangers qui vous guettent. Gérez vos ressources, craftez vos outils et construisez votre base pour affronter les défis des cieux."
+      },
+      "create": {
+        "title": "Créez",
+        "description": "Construisez votre dirigeable pièce par pièce et personnalisez-le selon votre style de jeu. Améliorez votre base, créez des outils et équipements pour faciliter votre aventure."
+      },
+      "explore": {
+        "title": "Explorez",
+        "description": "Chaque île cache ses propres secrets et ressources uniques. Voyagez de biome en biome, découvrez des ruines anciennes et percez les mystères de ce monde suspendu."
+      }
+    },
+    "community": {
+      "title": "Rejoignez la Communauté",
+      "description": "Suivez le développement d'Aetheris, partagez vos retours et soyez les premiers informés des nouveautés !",
+      "discord": "Rejoindre Discord",
+      "twitter": "Suivre sur Twitter"
+    }
+  },
+  "cta": {
+    "title": "Rejoignez l'Aventure",
+    "description": "Suivez le développement d'Aetheris et soyez les premiers informés des actualités, mises à jour et dates de sortie.",
+    "contact": "Nous Contacter",
+    "twitter": "Suivre sur Twitter"
+  },
+  "footer": {
+    "description": "Studio indépendant breton créant des jeux vidéo authentiques et des expériences partagées.",
+    "navigation": "Navigation",
+    "followUs": "Follow Us",
+    "copyright": "Tous droits réservés."
+  }
+}

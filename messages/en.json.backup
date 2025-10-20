@@ -1,0 +1,143 @@
+{
+  "nav": {
+    "home": "Home",
+    "aetheris": "Aetheris",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "meta": {
+      "title": "Home",
+      "description": "Independent video game studio based in Brittany, France. Creators of Aetheris, a stylized survival and exploration game set in a world of floating islands."
+    },
+    "hero": {
+      "subtitle": "Independent Video Game Studio",
+      "description": "Creators of immersive worlds where adventure, exploration and sharing come to life",
+      "discoverAetheris": "Discover Aetheris",
+      "ourStudio": "Our Studio",
+      "scrollText": "Discover more"
+    },
+    "aetherisSection": {
+      "badge": "IN DEVELOPMENT",
+      "tagline": "Survive in the skies",
+      "mainTitle": "A world of floating islands to explore",
+      "mainDescription": "Explore a fantasy universe where each island hides its secrets. Build your airship, gather resources and survive in the skies.",
+      "buildBase": "Build your base",
+      "discoverMysteries": "Discover the mysteries",
+      "discoverGame": "Discover the Game"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About",
+      "description": "Small indie studio from Brittany passionate about creating immersive worlds. Discover our team and our story."
+    },
+    "hero": {
+      "badge": "ABOUT",
+      "title": "Who are we?",
+      "subtitle": "Small indie studio from Brittany passionate about creating immersive worlds"
+    },
+    "story": {
+      "founded": "Founded in 2025",
+      "location": "Brittany, France",
+      "title": "Our Story",
+      "paragraph1": "was born from a passion for video games and a desire to create unique experiences.",
+      "paragraph2": "Based in Brittany, we are developing",
+      "paragraph2b": ", our first game that embodies our vision: immersive worlds where exploration, creativity and sharing come to life.",
+      "paragraph3": "As an independent studio, we have the freedom to follow our vision and create games we're truly passionate about."
+    },
+    "team": {
+      "title": "The Team",
+      "subtitle": "A small passionate team working hard on",
+      "member1": {
+        "name": "Member 1",
+        "role": "Game Designer & Developer"
+      },
+      "member2": {
+        "name": "Member 2",
+        "role": "2D/3D Artist"
+      },
+      "member3": {
+        "name": "Member 3",
+        "role": "Developer"
+      },
+      "member4": {
+        "name": "Member 4",
+        "role": "Sound Designer"
+      },
+      "hiring": "We are growing and always looking for talents who share our vision!",
+      "contactUs": "Contact us"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Contact Lodenn Studio. A question about Aetheris, a collaboration or just want to say hello? We're here to listen."
+    },
+    "hero": {
+      "badge": "CONTACT",
+      "title": "Let's talk together",
+      "subtitle": "A question about Aetheris, a collaboration or just want to say hello?"
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send"
+    },
+    "social": {
+      "title": "Join our community",
+      "subtitle": "Follow us on social media to stay updated"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions"
+    }
+  },
+  "aetheris": {
+    "meta": {
+      "title": "Aetheris - Survival Game",
+      "description": "Aetheris - A stylized survival and exploration game set in a world of floating islands. Build your airship, explore the skies and discover the mysteries."
+    },
+    "hero": {
+      "badge": "GAME IN DEVELOPMENT",
+      "subtitle": "Survival • Exploration • Crafting",
+      "description": "Explore a fantasy world of floating islands, build your airship and survive in the skies.",
+      "wishlist": "Add to wishlist",
+      "trailer": "Watch Trailer"
+    },
+    "features": {
+      "survive": {
+        "title": "Survive",
+        "description": "The floating islands are full of resources to gather, but beware of the dangers that await you. Manage your resources, craft your tools and build your base to face the challenges of the skies."
+      },
+      "create": {
+        "title": "Create",
+        "description": "Build your airship piece by piece and customize it according to your playstyle. Upgrade your base, create tools and equipment to make your adventure easier."
+      },
+      "explore": {
+        "title": "Explore",
+        "description": "Each island hides its own secrets and unique resources. Travel from biome to biome, discover ancient ruins and uncover the mysteries of this suspended world."
+      }
+    },
+    "community": {
+      "title": "Join the Community",
+      "description": "Follow Aetheris development, share your feedback and be the first to know about updates!",
+      "discord": "Join Discord",
+      "twitter": "Follow on Twitter"
+    }
+  },
+  "cta": {
+    "title": "Join the Adventure",
+    "description": "Follow Aetheris development and be the first to know about news, updates and release dates.",
+    "contact": "Contact Us",
+    "twitter": "Follow on Twitter"
+  },
+  "footer": {
+    "description": "Independent Breton studio creating authentic video games and shared experiences.",
+    "navigation": "Navigation",
+    "followUs": "Follow Us",
+    "copyright": "All rights reserved."
+  }
+}
