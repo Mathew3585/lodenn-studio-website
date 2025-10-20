@@ -16,5 +16,5 @@ export default createMiddleware({
 
 export const config = {
   // Matcher pour inclure toutes les routes sauf les fichiers statiques et API
-  matcher: ['/', '/(fr|en)/:path*', '/((?!_next|_vercel|.*\\..*).*)']
+  matcher: ['/', '/(fr|en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)']
 };

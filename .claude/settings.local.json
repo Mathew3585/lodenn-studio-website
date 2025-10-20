@@ -13,7 +13,14 @@
       "Bash(curl -s http://localhost:3000/en/games/aetheris)",
       "Bash(curl -s http://localhost:3000/en/contact)",
       "Bash(curl -s http://localhost:3000/fr/games/aetheris)",
-      "Bash(curl -s http://localhost:3000/fr/contact)"
+      "Bash(curl -s http://localhost:3000/fr/contact)",
+      "Bash(node -e \"const fs = require(''fs''); try { const fr = JSON.parse(fs.readFileSync(''messages/fr.json'', ''utf8'')); const en = JSON.parse(fs.readFileSync(''messages/en.json'', ''utf8'')); console.log(''JSON files are valid''); } catch(e) { console.log(''Error:'', e.message); }\")",
+      "Bash(if exist .next rmdir /s /q .next)",
+      "Bash(rm -rf .next)",
+      "Bash(npm install resend)",
+      "Bash(npm run dev)",
+      "Bash(dir app /b)",
+      "Bash(npm install @react-email/components @react-email/render)"
     ],
     "deny": [],
     "ask": []

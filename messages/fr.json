@@ -118,6 +118,13 @@
       }
     }
   },
+  "contactForm": {
+    "successTitle": "Message envoyé avec succès !",
+    "successMessage": "Nous vous répondrons dans les plus brefs délais.",
+    "errorTitle": "Erreur lors de l'envoi",
+    "error": "Une erreur s'est produite. Veuillez réessayer plus tard.",
+    "errorConnection": "Échec de l'envoi du message. Veuillez vérifier votre connexion et réessayer."
+  },
   "aetheris": {
     "meta": {
       "title": "Aetheris - Jeu de Survie",

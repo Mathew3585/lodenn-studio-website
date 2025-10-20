@@ -118,6 +118,13 @@
       }
     }
   },
+  "contactForm": {
+    "successTitle": "Message sent successfully!",
+    "successMessage": "We'll get back to you as soon as possible.",
+    "errorTitle": "Error sending message",
+    "error": "Something went wrong. Please try again later.",
+    "errorConnection": "Failed to send message. Please check your connection and try again."
+  },
   "aetheris": {
     "meta": {
       "title": "Aetheris - Survival Game",

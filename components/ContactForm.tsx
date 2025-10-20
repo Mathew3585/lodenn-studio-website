@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ContactForm() {
+  const t = useTranslations('contactForm');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,10 +26,12 @@ export default function ContactForm() {
     setStatus('submitting');
     setErrorMessage('');
 
+    console.log('🚀 Submitting form with data:', formData);
+
     try {
-      // Using Formspree for form handling - replace with your Formspree endpoint
-      // Sign up at https://formspree.io/ and replace 'YOUR_FORM_ID' with your actual form ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      // Call our API route to send email via Resend
+      console.log('📡 Calling API: /api/contact');
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,7 +39,13 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
+      console.log('📥 Response status:', response.status);
+      console.log('📥 Response ok:', response.ok);
+
       if (response.ok) {
+        console.log('✅ Form submitted successfully!');
+        const responseData = await response.json();
+        console.log('📬 Response data:', responseData);
         setStatus('success');
         setFormData({
           name: '',
@@ -44,13 +54,16 @@ export default function ContactForm() {
           message: '',
         });
       } else {
+        console.error('❌ Form submission failed with status:', response.status);
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        console.error('❌ Error data:', errorData);
         setStatus('error');
-        setErrorMessage('Something went wrong. Please try again later.');
+        setErrorMessage(t('error'));
       }
     } catch (error) {
+      console.error('❌ Form submission error (catch):', error);
       setStatus('error');
-      setErrorMessage('Failed to send message. Please check your connection and try again.');
-      console.error('Form submission error:', error);
+      setErrorMessage(t('errorConnection'));
     }
   };
 
@@ -132,14 +145,14 @@ export default function ContactForm() {
       {/* Status Messages */}
       {status === 'success' && (
         <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-          <p className="font-semibold">Message sent successfully!</p>
-          <p className="text-sm">We&apos;ll get back to you as soon as possible.</p>
+          <p className="font-semibold">{t('successTitle')}</p>
+          <p className="text-sm">{t('successMessage')}</p>
         </div>
       )}
 
       {status === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-          <p className="font-semibold">Error sending message</p>
+          <p className="font-semibold">{t('errorTitle')}</p>
           <p className="text-sm">{errorMessage}</p>
         </div>
       )}
