@@ -20,7 +20,9 @@
       "Bash(npm install resend)",
       "Bash(npm run dev)",
       "Bash(dir app /b)",
-      "Bash(npm install @react-email/components @react-email/render)"
+      "Bash(npm install @react-email/components @react-email/render)",
+      "Bash(git add scripts/setup-vps.sh DEPLOYMENT.md)",
+      "Bash(git commit -m \"Fix GitHub username\")"
     ],
     "deny": [],
     "ask": []

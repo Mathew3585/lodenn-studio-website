@@ -1,13 +1,20 @@
 # 🚀 Guide de déploiement - Lodenn Studio Website
 
-Ce guide vous accompagne étape par étape pour déployer votre site Next.js sur votre VPS avec déploiement automatique via GitHub Actions.
+Ce guide vous accompagne étape par étape pour déployer votre site Next.js sur votre VPS Hostinger avec déploiement automatique via GitHub Actions.
 
 ## 📋 Prérequis
 
-- ✅ VPS Ubuntu 24.04 LTS (147.93.121.181)
-- ✅ Nom de domaine: lodennstudio.com
-- ✅ Accès SSH root au VPS
-- ✅ Repository GitHub avec le code source
+- ✅ **VPS Hostinger** : Ubuntu 24.04 LTS (147.93.121.181)
+- ✅ **Nom de domaine** : lodennstudio.com (hébergé chez Hostinger)
+- ✅ **Accès SSH** : root@147.93.121.181
+- ✅ **Repository GitHub** : https://github.com/Mathew3585/lodenn-studio-website
+
+## 🏢 Infrastructure
+
+- **Hébergeur VPS** : Hostinger
+- **Hébergeur domaine** : Hostinger
+- **Système d'exploitation** : Ubuntu 24.04 LTS
+- **Stack technique** : Next.js 15 + Node.js 20 + PM2 + Nginx
 
 ---
 
@@ -52,33 +59,45 @@ Ce script va installer automatiquement :
 
 ---
 
-## 🌐 Étape 2 : Configuration DNS
+## 🌐 Étape 2 : Configuration DNS chez Hostinger
 
-Vous devez pointer votre nom de domaine vers votre VPS.
+Vous devez pointer votre nom de domaine vers votre VPS Hostinger.
 
-### 2.1 Accès à votre registrar de domaine
+### 2.1 Connexion à Hostinger
 
-Connectez-vous au site où vous avez acheté votre domaine (ex: OVH, Gandi, Namecheap, etc.)
+1. Allez sur https://hpanel.hostinger.com
+2. Connectez-vous avec vos identifiants Hostinger
 
 ### 2.2 Configuration des enregistrements DNS
 
-Ajoutez/modifiez les enregistrements suivants :
+**Étape par étape chez Hostinger :**
 
-| Type | Nom | Valeur | TTL |
-|------|-----|--------|-----|
-| A | @ | 147.93.121.181 | 3600 |
-| A | www | 147.93.121.181 | 3600 |
+1. Dans le hPanel, trouvez la section **"Domains"** (Domaines)
+2. Cliquez sur **"lodennstudio.com"**
+3. Cliquez sur **"DNS / Name Servers"** (ou "Zone DNS")
+4. Vous devriez voir une liste d'enregistrements DNS
 
-**Exemple chez OVH :**
-1. Allez dans "Web Cloud" > "Noms de domaine"
-2. Cliquez sur votre domaine "lodennstudio.com"
-3. Onglet "Zone DNS"
-4. Ajoutez les enregistrements A
+5. **Modifiez ou ajoutez** les enregistrements suivants :
 
-**Exemple chez Namecheap :**
-1. Dashboard > Domain List
-2. Manage > Advanced DNS
-3. Ajoutez les enregistrements A
+| Type | Nom | Pointe vers | TTL |
+|------|-----|-------------|-----|
+| A | @ | 147.93.121.181 | 14400 (ou laissez par défaut) |
+| A | www | 147.93.121.181 | 14400 (ou laissez par défaut) |
+
+**Instructions détaillées :**
+- Pour **l'enregistrement @ (root)** :
+  - Si un enregistrement A avec "@" existe déjà, **modifiez-le** pour pointer vers `147.93.121.181`
+  - Sinon, cliquez sur **"Add Record"** > Type: **A** > Name: **@** > Points to: **147.93.121.181**
+
+- Pour **l'enregistrement www** :
+  - Si un enregistrement A avec "www" existe déjà, **modifiez-le** pour pointer vers `147.93.121.181`
+  - Sinon, cliquez sur **"Add Record"** > Type: **A** > Name: **www** > Points to: **147.93.121.181**
+
+6. **Sauvegardez** les modifications
+
+**⚠️ Important :**
+- Supprimez ou désactivez tout autre enregistrement A qui pointerait vers une autre IP
+- Si vous avez des enregistrements CNAME pour @ ou www, supprimez-les (ils entrent en conflit avec les enregistrements A)
 
 ### 2.3 Vérification de la propagation DNS
 
