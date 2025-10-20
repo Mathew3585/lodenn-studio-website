@@ -27,11 +27,9 @@ Une fois connecté au VPS, téléchargez le repository :
 
 ```bash
 cd /tmp
-git clone https://github.com/VOTRE_USERNAME/lodenn-studio-website-github.git
-cd lodenn-studio-website-github
+git clone https://github.com/Mathew3585/lodenn-studio-website.git
+cd lodenn-studio-website
 ```
-
-**⚠️ Remplacez `VOTRE_USERNAME` par votre nom d'utilisateur GitHub réel !**
 
 ### 1.3 Exécution du script d'installation
 
