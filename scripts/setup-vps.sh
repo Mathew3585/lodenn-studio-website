@@ -77,13 +77,8 @@ echo ""
 echo "📥 Clone du repository GitHub..."
 cd /var/www/lodennstudio
 
-if [ -d ".git" ]; then
-  echo "Le repository existe déjà, mise à jour..."
-  git pull origin main
-else
-  echo "Clone du repository..."
-  git clone https://github.com/Mathew3585/lodenn-studio-website.git .
-fi
+echo "Clone du repository..."
+git clone https://github.com/Mathew3585/lodenn-studio-website.git .
 
 # Installation des dépendances du projet
 echo ""
