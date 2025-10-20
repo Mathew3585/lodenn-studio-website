@@ -88,7 +88,7 @@ if [ -d ".git" ]; then
   git pull origin main
 else
   echo "Clone du repository..."
-  git clone https://github.com/VOTRE_USERNAME/lodenn-studio-website-github.git .
+  git clone https://github.com/Mathew3585/lodenn-studio-website-github.git .
   # TODO: Remplacez VOTRE_USERNAME par votre nom d'utilisateur GitHub
 fi
 
