@@ -23,6 +23,7 @@ cd $APP_DIR
 # Récupération des dernières modifications
 echo ""
 echo "📥 Récupération du code depuis GitHub..."
+# Note: Nécessite une clé SSH configurée sur le VPS
 git fetch origin $BRANCH
 git reset --hard origin/$BRANCH
 

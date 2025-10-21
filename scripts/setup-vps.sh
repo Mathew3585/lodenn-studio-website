@@ -62,9 +62,14 @@ echo ""
 echo "📦 Installation de Certbot (Let's Encrypt SSL)..."
 apt install -y certbot python3-certbot-nginx
 
-# Configuration du firewall (déjà configuré via l'interface Hostinger)
+# Configuration du firewall UFW
 echo ""
-echo "🔒 Firewall déjà configuré via Hostinger - skip..."
+echo "🔒 Configuration du firewall..."
+ufw --force enable
+ufw allow 22/tcp    # SSH
+ufw allow 80/tcp    # HTTP
+ufw allow 443/tcp   # HTTPS
+ufw status
 
 # Création du répertoire pour l'application
 echo ""
@@ -72,13 +77,19 @@ echo "📁 Création du répertoire de l'application..."
 mkdir -p /var/www/lodennstudio
 chown -R root:root /var/www/lodennstudio
 
-# Clone du repository GitHub (repository public)
+# Clone du repository (vous devrez peut-être configurer les credentials GitHub)
 echo ""
 echo "📥 Clone du repository GitHub..."
 cd /var/www/lodennstudio
 
-echo "Clone du repository..."
-git clone https://github.com/Mathew3585/lodenn-studio-website.git .
+# Note: Si le repo est privé, vous devrez configurer une clé SSH ou un token
+if [ -d ".git" ]; then
+  echo "Le repository existe déjà, mise à jour..."
+  git pull origin main
+else
+  echo "Clone du repository..."
+  git clone https://github.com/Mathew3585/lodenn-studio-website.git .
+fi
 
 # Installation des dépendances du projet
 echo ""
