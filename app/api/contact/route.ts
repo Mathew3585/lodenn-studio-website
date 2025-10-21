@@ -3,9 +3,26 @@ import { Resend } from 'resend';
 import { ContactFormEmail } from '@/components/emails/ContactFormEmail';
 import { ContactConfirmationEmail } from '@/components/emails/ContactConfirmationEmail';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization of Resend to avoid build-time errors
+let resend: Resend | null = null;
+
+function getResendClient() {
+  if (!resend && process.env.RESEND_API_KEY) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 export async function POST(request: NextRequest) {
+  const resendClient = getResendClient();
+
+  if (!resendClient) {
+    console.error('❌ RESEND_API_KEY is not configured');
+    return NextResponse.json(
+      { error: 'Email service is not configured. Please contact the administrator.' },
+      { status: 503 }
+    );
+  }
   console.log('🔥 API Route /api/contact called');
   console.log('📧 RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY);
   console.log('📬 CONTACT_EMAIL_TO:', process.env.CONTACT_EMAIL_TO);
@@ -61,7 +78,7 @@ export async function POST(request: NextRequest) {
     const locale = request.headers.get('accept-language')?.includes('en') ? 'en' : 'fr';
 
     // 1. Send email to staff
-    const { data: staffData, error: staffError } = await resend.emails.send({
+    const { data: staffData, error: staffError } = await resendClient.emails.send({
       from: process.env.CONTACT_EMAIL_FROM || 'onboarding@resend.dev',
       to: process.env.CONTACT_EMAIL_TO || 'mathew.simon2004@gmail.com',
       subject: `📬 Nouveau contact - ${subjectLabel}`,
@@ -85,7 +102,7 @@ export async function POST(request: NextRequest) {
     console.log('✅ Staff email sent! Message ID:', staffData?.id);
 
     // 2. Send confirmation email to user
-    const { data: confirmData, error: confirmError } = await resend.emails.send({
+    const { data: confirmData, error: confirmError } = await resendClient.emails.send({
       from: process.env.CONTACT_EMAIL_FROM || 'onboarding@resend.dev',
       to: email,
       subject: locale === 'fr'
