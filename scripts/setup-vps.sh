@@ -66,10 +66,12 @@ apt install -y certbot python3-certbot-nginx
 echo ""
 echo "🔒 Configuration du firewall..."
 ufw --force enable
+ufw default allow outgoing  # Autoriser les connexions sortantes
+ufw default deny incoming   # Bloquer les connexions entrantes par défaut
 ufw allow 22/tcp    # SSH
 ufw allow 80/tcp    # HTTP
 ufw allow 443/tcp   # HTTPS
-ufw status
+ufw status verbose
 
 # Création du répertoire pour l'application
 echo ""
@@ -77,12 +79,11 @@ echo "📁 Création du répertoire de l'application..."
 mkdir -p /var/www/lodennstudio
 chown -R root:root /var/www/lodennstudio
 
-# Clone du repository (vous devrez peut-être configurer les credentials GitHub)
+# Clone du repository GitHub (repository public)
 echo ""
 echo "📥 Clone du repository GitHub..."
 cd /var/www/lodennstudio
 
-# Note: Si le repo est privé, vous devrez configurer une clé SSH ou un token
 if [ -d ".git" ]; then
   echo "Le repository existe déjà, mise à jour..."
   git pull origin main

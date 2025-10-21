@@ -160,7 +160,7 @@ const styles = {
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   },
   header: {
-    background: `linear-gradient(to bottom, ${colors.primaryLight} 0%, ${colors.white} 100%)`,
+    background: `linear-gradient(to bottom, ${colors.primary} 0%, ${colors.white} 100%)`,
     padding: '40px 20px',
     textAlign: 'center' as const,
   },
