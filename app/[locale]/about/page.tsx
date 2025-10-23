@@ -135,8 +135,8 @@ export default function AboutPage() {
       </section>
 
       {/* L'équipe - Cards gaming style */}
+      {/* SECTION TEMPORAIREMENT COMMENTÉE - En attente des photos de l'équipe
       <section className="relative py-32 bg-gradient-to-b from-gray-900 to-black">
-        {/* Ligne de séparation orange */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4">
@@ -185,7 +185,6 @@ export default function AboutPage() {
                 whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
                 className="group relative bg-gradient-to-b from-gray-900 to-black rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors duration-200"
               >
-                {/* Photo */}
                 <div className="relative h-72 bg-gray-800 overflow-hidden">
                   <Image
                     src={member.image}
@@ -197,7 +196,6 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10" />
                 </div>
 
-                {/* Info */}
                 <div className="p-6 text-center">
                   <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-200">
                     {member.name}
@@ -207,7 +205,6 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Effet de survol - bordure animée */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0" />
                 </div>
@@ -244,6 +241,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+      */}
 
       <CTASection />
     </div>
