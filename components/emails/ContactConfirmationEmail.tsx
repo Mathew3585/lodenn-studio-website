@@ -81,7 +81,7 @@ export function ContactConfirmationEmail({
           {/* Header avec logo */}
           <Section style={styles.header}>
             <Img
-              src="https://i.postimg.cc/SQv05mmS/logo.png"
+              src="https://lodennstudio.com/images/Mail/logo.png"
               width="150"
               height="150"
               alt="Lodenn Studio Logo"
