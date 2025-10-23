@@ -306,6 +306,71 @@ Pour envoyer des emails depuis votre propre domaine :
 
 ---
 
+## 📊 Étape 8 : Configuration Google Analytics (OPTIONNEL)
+
+Pour suivre le trafic et le comportement des visiteurs.
+
+### 8.1 Créer un compte Google Analytics
+
+1. Allez sur : https://analytics.google.com
+2. Cliquez sur **"Démarrer la mesure"**
+3. Créez un compte :
+   - Nom du compte : `Lodenn Studio`
+   - Nom de la propriété : `Lodenn Studio Website`
+   - Fuseau horaire : `France`
+   - Devise : `Euro`
+
+4. Configurez un flux de données Web :
+   - URL du site web : `https://lodennstudio.com`
+   - Nom du flux : `Production Website`
+
+5. **Copiez l'ID de mesure** qui s'affiche (format : `G-XXXXXXXXXX`)
+
+### 8.2 Ajouter l'ID de mesure sur le VPS
+
+```bash
+ssh ubuntu@37.59.123.174
+cd /var/www/lodennstudio
+nano .env.production
+```
+
+Ajoutez cette ligne (remplacez par votre vrai ID) :
+
+```env
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+Sauvegardez (`Ctrl+O`, `Entrée`, `Ctrl+X`) et redémarrez :
+
+```bash
+pm2 restart lodennstudio
+```
+
+### 8.3 Tester
+
+1. Allez sur https://lodennstudio.com
+2. **Acceptez les cookies** dans la bannière qui apparaît en bas
+3. Naviguez sur quelques pages
+4. Dans Google Analytics (peut prendre quelques minutes) :
+   - **Rapports** > **Temps réel**
+   - Vous devriez voir votre visite !
+
+### 8.4 Données disponibles
+
+Une fois configuré, vous aurez accès à :
+- Nombre de visiteurs (temps réel et historique)
+- Pages les plus visitées
+- Provenance du trafic (recherche, réseaux sociaux, direct)
+- Appareils utilisés (desktop, mobile, tablette)
+- Pays et villes des visiteurs
+- Langue préférée (FR vs EN)
+- Temps passé sur le site
+- Taux de rebond
+
+**Note** : Les données ne sont collectées que si l'utilisateur accepte les cookies (RGPD compliant).
+
+---
+
 ## 🛠️ Commandes utiles
 
 ### Gestion de l'application

@@ -9,6 +9,8 @@ import PageTransitionHandler from '@/components/PageTransitionHandler';
 import { OrganizationSchema, WebSiteSchema } from '@/components/StructuredData';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import Analytics from '@/components/Analytics';
+import CookieBanner from '@/components/CookieBanner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -109,6 +111,7 @@ export default async function LocaleLayout({
         <WebSiteSchema locale={locale} />
       </head>
       <body className={inter.className}>
+        <Analytics />
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll>
             <PageTransitionHandler />
@@ -119,6 +122,7 @@ export default async function LocaleLayout({
               </main>
             </PageTransition>
             <Footer />
+            <CookieBanner />
           </SmoothScroll>
         </NextIntlClientProvider>
       </body>
