@@ -9,10 +9,11 @@ module.exports = {
       autorestart: true,
       watch: false,
       max_memory_restart: '3G',
-      node_args: '--max-old-space-size=3072', // Allouer 3GB de heap pour Node.js (serveur a 8GB RAM)
+      node_args: '--max-old-space-size=3072 --max-semi-space-size=128', // Allouer 3GB de heap pour Node.js (serveur a 8GB RAM)
       env: {
         NODE_ENV: 'production',
         PORT: 3000,
+        NODE_OPTIONS: '--max-old-space-size=3072',
         // RESEND_API_KEY sera ajouté plus tard dans .env.production
       },
       error_file: '/var/www/lodennstudio/logs/error.log',
