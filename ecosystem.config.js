@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'lodennstudio',
-      script: 'npm',
+      script: 'node_modules/next/dist/bin/next',
       args: 'start',
       cwd: '/var/www/lodennstudio',
       instances: 1,
