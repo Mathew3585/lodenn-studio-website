@@ -8,7 +8,8 @@ module.exports = {
       instances: 1,
       autorestart: true,
       watch: false,
-      max_memory_restart: '1G',
+      max_memory_restart: '3G',
+      node_args: '--max-old-space-size=3072', // Allouer 3GB de heap pour Node.js (serveur a 8GB RAM)
       env: {
         NODE_ENV: 'production',
         PORT: 3000,
