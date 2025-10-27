@@ -73,33 +73,27 @@ export default function Header() {
               <div className="relative">
                 <button
                   onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="flex items-center px-2 py-2 rounded-lg hover:bg-gray-100 transition-colors"
                   aria-label="Change language"
                 >
-                  <span className="text-2xl">{locale === 'fr' ? '🇫🇷' : '🇬🇧'}</span>
-                  <span className="font-medium text-gray-700">{locale.toUpperCase()}</span>
-                  <svg className={`w-4 h-4 transition-transform ${isLangMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  <span className="text-3xl">{locale === 'fr' ? '🇫🇷' : '🇬🇧'}</span>
                 </button>
 
                 {isLangMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <div className="absolute right-0 mt-2 w-16 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                     <Link
                       href={switchLocale('fr')}
-                      className={`flex items-center space-x-3 px-4 py-2 hover:bg-gray-100 transition-colors ${locale === 'fr' ? 'bg-gray-50' : ''}`}
+                      className={`flex items-center justify-center px-4 py-2 hover:bg-gray-100 transition-colors ${locale === 'fr' ? 'bg-gray-50' : ''}`}
                       onClick={() => setIsLangMenuOpen(false)}
                     >
-                      <span className="text-2xl">🇫🇷</span>
-                      <span className="font-medium">Français</span>
+                      <span className="text-3xl">🇫🇷</span>
                     </Link>
                     <Link
                       href={switchLocale('en')}
-                      className={`flex items-center space-x-3 px-4 py-2 hover:bg-gray-100 transition-colors ${locale === 'en' ? 'bg-gray-50' : ''}`}
+                      className={`flex items-center justify-center px-4 py-2 hover:bg-gray-100 transition-colors ${locale === 'en' ? 'bg-gray-50' : ''}`}
                       onClick={() => setIsLangMenuOpen(false)}
                     >
-                      <span className="text-2xl">🇬🇧</span>
-                      <span className="font-medium">English</span>
+                      <span className="text-3xl">🇬🇧</span>
                     </Link>
                   </div>
                 )}
