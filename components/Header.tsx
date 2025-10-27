@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -26,6 +27,7 @@ export default function Header() {
         setIsVisible(true);
       } else {
         setIsVisible(false);
+        setIsLangMenuOpen(false); // Ferme le dropdown quand le header se cache
       }
     };
 
@@ -70,33 +72,59 @@ export default function Header() {
               </Link>
 
               {/* Language Switcher */}
-              <div className="relative">
+              <div className="relative flex items-center justify-center">
                 <button
                   onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center px-2 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="flex items-center px-2 py-2 rounded-lg hover:bg-gray-100 transition-all hover:scale-110"
                   aria-label="Change language"
                 >
-                  <span className="text-3xl">{locale === 'fr' ? '🇫🇷' : '🇬🇧'}</span>
+                  <Image
+                    src={`/images/Countrie/${locale}.webp`}
+                    alt={locale === 'fr' ? 'Français' : 'English'}
+                    width={24}
+                    height={24}
+                    className="rounded transition-transform"
+                  />
                 </button>
 
-                {isLangMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-16 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                    <Link
-                      href={switchLocale('fr')}
-                      className={`flex items-center justify-center px-4 py-2 hover:bg-gray-100 transition-colors ${locale === 'fr' ? 'bg-gray-50' : ''}`}
-                      onClick={() => setIsLangMenuOpen(false)}
+                <AnimatePresence>
+                  {isLangMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full mt-0 -ml-10 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl border border-gray-200 py-4 px-4 z-50 flex flex-col items-center gap-4 min-w-[96px]"
                     >
-                      <span className="text-3xl">🇫🇷</span>
-                    </Link>
-                    <Link
-                      href={switchLocale('en')}
-                      className={`flex items-center justify-center px-4 py-2 hover:bg-gray-100 transition-colors ${locale === 'en' ? 'bg-gray-50' : ''}`}
-                      onClick={() => setIsLangMenuOpen(false)}
-                    >
-                      <span className="text-3xl">🇬🇧</span>
-                    </Link>
-                  </div>
-                )}
+                      <Link
+                        href={switchLocale('fr')}
+                        className="hover:scale-110 transition-transform"
+                        onClick={() => setIsLangMenuOpen(false)}
+                      >
+                        <Image
+                          src="/images/Countrie/fr.webp"
+                          alt="Français"
+                          width={44}
+                          height={44}
+                          className={`rounded-md transition-all ${locale === 'fr' ? 'ring-4 ring-primary ring-offset-2' : 'opacity-70 hover:opacity-100'}`}
+                        />
+                      </Link>
+                      <Link
+                        href={switchLocale('en')}
+                        className="hover:scale-110 transition-transform"
+                        onClick={() => setIsLangMenuOpen(false)}
+                      >
+                        <Image
+                          src="/images/Countrie/en.webp"
+                          alt="English"
+                          width={44}
+                          height={44}
+                          className={`rounded-md transition-all ${locale === 'en' ? 'ring-4 ring-primary ring-offset-2' : 'opacity-70 hover:opacity-100'}`}
+                        />
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
 
@@ -166,24 +194,32 @@ export default function Header() {
 
                 {/* Language Switcher Mobile */}
                 <div className="pt-4 border-t border-gray-200">
-                  <div className="flex gap-4 justify-center">
+                  <div className="flex gap-6 justify-center">
                     <Link
                       href={switchLocale('fr')}
-                      className={`flex items-center justify-center p-3 rounded-lg transition-all ${
-                        locale === 'fr' ? 'bg-primary scale-110' : 'bg-gray-100 hover:bg-gray-200'
-                      }`}
+                      className="flex items-center justify-center transition-transform hover:scale-110"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <span className="text-4xl">🇫🇷</span>
+                      <Image
+                        src="/images/Countrie/fr.webp"
+                        alt="Français"
+                        width={40}
+                        height={40}
+                        className={`rounded-md transition-all ${locale === 'fr' ? 'ring-4 ring-primary ring-offset-2 scale-110' : 'opacity-70'}`}
+                      />
                     </Link>
                     <Link
                       href={switchLocale('en')}
-                      className={`flex items-center justify-center p-3 rounded-lg transition-all ${
-                        locale === 'en' ? 'bg-primary scale-110' : 'bg-gray-100 hover:bg-gray-200'
-                      }`}
+                      className="flex items-center justify-center transition-transform hover:scale-110"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <span className="text-4xl">🇬🇧</span>
+                      <Image
+                        src="/images/Countrie/en.webp"
+                        alt="English"
+                        width={40}
+                        height={40}
+                        className={`rounded-md transition-all ${locale === 'en' ? 'ring-4 ring-primary ring-offset-2 scale-110' : 'opacity-70'}`}
+                      />
                     </Link>
                   </div>
                 </div>

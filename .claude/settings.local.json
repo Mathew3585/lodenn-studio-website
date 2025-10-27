@@ -22,7 +22,13 @@
       "Bash(dir app /b)",
       "Bash(npm install @react-email/components @react-email/render)",
       "Bash(git add scripts/setup-vps.sh DEPLOYMENT.md)",
-      "Bash(git commit -m \"Fix GitHub username\")"
+      "Bash(git commit -m \"Fix GitHub username\")",
+      "Bash(git add:*)",
+      "Bash(git restore:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []
