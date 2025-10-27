@@ -166,27 +166,24 @@ export default function Header() {
 
                 {/* Language Switcher Mobile */}
                 <div className="pt-4 border-t border-gray-200">
-                  <p className="text-sm text-gray-500 mb-2 font-medium">Language / Langue</p>
-                  <div className="flex gap-2">
+                  <div className="flex gap-4 justify-center">
                     <Link
                       href={switchLocale('fr')}
-                      className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors flex-1 ${
-                        locale === 'fr' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      className={`flex items-center justify-center p-3 rounded-lg transition-all ${
+                        locale === 'fr' ? 'bg-primary scale-110' : 'bg-gray-100 hover:bg-gray-200'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <span className="text-xl">🇫🇷</span>
-                      <span className="font-medium">FR</span>
+                      <span className="text-4xl">🇫🇷</span>
                     </Link>
                     <Link
                       href={switchLocale('en')}
-                      className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors flex-1 ${
-                        locale === 'en' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      className={`flex items-center justify-center p-3 rounded-lg transition-all ${
+                        locale === 'en' ? 'bg-primary scale-110' : 'bg-gray-100 hover:bg-gray-200'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <span className="text-xl">🇬🇧</span>
-                      <span className="font-medium">EN</span>
+                      <span className="text-4xl">🇬🇧</span>
                     </Link>
                   </div>
                 </div>
