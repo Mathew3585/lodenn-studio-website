@@ -75,7 +75,7 @@ export default function Header() {
               <div className="relative flex items-center justify-center">
                 <button
                   onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center px-2 py-2 rounded-lg hover:bg-gray-100 transition-all hover:scale-110"
+                  className="flex items-center px-2 py-2 rounded-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105"
                   aria-label="Change language"
                 >
                   <Image
@@ -83,7 +83,7 @@ export default function Header() {
                     alt={locale === 'fr' ? 'Français' : 'English'}
                     width={24}
                     height={24}
-                    className="rounded transition-transform"
+                    className="rounded"
                   />
                 </button>
 
