@@ -34,8 +34,5 @@ export function useDeviceOptimizations() {
     shouldRenderParticles: !isMobile,
     shouldUseSmoothScroll: !isMobile,
     animationDuration: isMobile ? 0.3 : 0.8,
-    springConfig: isMobile
-      ? { type: 'tween' as const, ease: 'easeOut' }
-      : { type: 'spring' as const, bounce: 0.3 },
   };
 }

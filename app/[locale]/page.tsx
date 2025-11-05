@@ -18,7 +18,7 @@ import CTASection from '@/components/CTASection';
 
 export default function Home() {
   const t = useTranslations('home');
-  const { isMobile, shouldRenderParticles, shouldUseBlur, springConfig } = useDeviceOptimizations();
+  const { isMobile, shouldRenderParticles, shouldUseBlur } = useDeviceOptimizations();
   const [scrollY, setScrollY] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -137,7 +137,7 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6, ...springConfig }}
+            transition={isMobile ? { duration: 0.8, delay: 0.6 } : { duration: 1, delay: 0.6, type: "spring", bounce: 0.4 }}
             className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 text-center"
           >
             <motion.span
@@ -320,7 +320,7 @@ export default function Home() {
               <motion.div
                 initial={isMobile ? { opacity: 0, y: 50 } : { opacity: 0, y: 100, rotateY: -15 }}
                 animate={isAetherisInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, rotateY: 0 }) : {}}
-                transition={{ duration: 1, delay: 1, ...springConfig }}
+                transition={isMobile ? { duration: 0.8, delay: 1 } : { duration: 1, delay: 1, type: "spring", bounce: 0.3 }}
                 className="lg:col-span-2 relative h-64 sm:h-80 lg:h-[600px] rounded-2xl overflow-hidden group"
               >
                 <Image
