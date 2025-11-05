@@ -3,10 +3,12 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
+import { useDeviceOptimizations } from '@/hooks/useDeviceOptimizations';
 
 export default function CTASection() {
   const t = useTranslations('cta');
   const locale = useLocale();
+  const { isMobile, shouldUseBlur } = useDeviceOptimizations();
 
   return (
     <section className="relative py-16 sm:py-24 lg:py-28 bg-gradient-to-br from-primary via-primary to-primary-dark overflow-hidden">
@@ -26,23 +28,27 @@ export default function CTASection() {
         }} />
       </div>
 
-      {/* Effets lumineux animés */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.3, 0.2]
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/4 w-96 h-96 bg-white/20 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.3, 0.4, 0.3]
-        }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-light/30 rounded-full blur-3xl"
-      />
+      {/* Effets lumineux animés - Disabled on mobile for performance */}
+      {!isMobile && (
+        <>
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.2, 0.3, 0.2]
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-1/4 w-96 h-96 bg-white/20 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.3, 0.4, 0.3]
+            }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-light/30 rounded-full blur-3xl"
+          />
+        </>
+      )}
 
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -95,7 +101,7 @@ export default function CTASection() {
                 href="https://twitter.com/lodennstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 sm:px-10 sm:py-5 bg-white/20 backdrop-blur-sm border-3 border-white text-white hover:bg-white hover:text-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block"
+                className={`px-6 py-3 sm:px-10 sm:py-5 bg-white/20 ${shouldUseBlur ? 'backdrop-blur-sm' : ''} border-3 border-white text-white hover:bg-white hover:text-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block`}
               >
                 {t('twitter')}
               </a>

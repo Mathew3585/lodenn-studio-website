@@ -6,9 +6,11 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
 import { useTranslations } from 'next-intl';
+import { useDeviceOptimizations } from '@/hooks/useDeviceOptimizations';
 
 export default function AboutPage() {
   const t = useTranslations('about');
+  const { shouldUseParallax } = useDeviceOptimizations();
   const heroRef = useRef(null);
   const storyRef = useRef(null);
 
@@ -17,8 +19,8 @@ export default function AboutPage() {
     offset: ["start start", "end start"]
   });
 
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const heroY = shouldUseParallax ? useTransform(scrollYProgress, [0, 1], [0, 200]) : useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const heroOpacity = shouldUseParallax ? useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]) : useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1]);
 
   const isStoryInView = useInView(storyRef, { once: true, amount: 0.3 });
 

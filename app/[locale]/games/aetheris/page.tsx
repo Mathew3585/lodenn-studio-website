@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import CTASection from '@/components/CTASection';
 import { VideoGameSchema } from '@/components/StructuredData';
 import { useTranslations, useLocale } from 'next-intl';
+import { useDeviceOptimizations } from '@/hooks/useDeviceOptimizations';
 
 const galleryImages = [
   {
@@ -30,6 +31,7 @@ const galleryImages = [
 export default function AetherisPage() {
   const t = useTranslations('aetheris');
   const locale = useLocale();
+  const { shouldUseParallax, shouldUseBlur } = useDeviceOptimizations();
   const heroRef = useRef(null);
   const galleryRef = useRef(null);
 
@@ -38,8 +40,8 @@ export default function AetherisPage() {
     offset: ["start start", "end start"]
   });
 
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 300]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const heroY = shouldUseParallax ? useTransform(scrollYProgress, [0, 1], [0, 300]) : useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const heroOpacity = shouldUseParallax ? useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]) : useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1]);
 
   const isGalleryInView = useInView(galleryRef, { once: true, amount: 0.2 });
 
@@ -202,7 +204,7 @@ export default function AetherisPage() {
               className="relative group"
             >
               {/* Glow orange */}
-              <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-2xl group-hover:bg-primary/50 transition-all duration-300" />
+              <div className={`absolute inset-0 bg-primary/30 rounded-2xl group-hover:bg-primary/50 transition-all duration-300 ${shouldUseBlur ? 'blur-3xl' : 'blur-lg'}`} />
 
               <div className="relative h-64 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
@@ -252,7 +254,7 @@ export default function AetherisPage() {
               className="relative order-1 lg:order-2 group"
             >
               {/* Glow orange */}
-              <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-2xl group-hover:bg-primary/50 transition-all duration-300" />
+              <div className={`absolute inset-0 bg-primary/30 rounded-2xl group-hover:bg-primary/50 transition-all duration-300 ${shouldUseBlur ? 'blur-3xl' : 'blur-lg'}`} />
 
               <div className="relative h-64 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
@@ -276,7 +278,7 @@ export default function AetherisPage() {
               className="relative group"
             >
               {/* Glow orange */}
-              <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-2xl group-hover:bg-primary/50 transition-all duration-300" />
+              <div className={`absolute inset-0 bg-primary/30 rounded-2xl group-hover:bg-primary/50 transition-all duration-300 ${shouldUseBlur ? 'blur-3xl' : 'blur-lg'}`} />
 
               <div className="relative h-64 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image

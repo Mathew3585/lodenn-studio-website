@@ -6,11 +6,13 @@ import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useDeviceOptimizations } from '@/hooks/useDeviceOptimizations';
 
 export default function Header() {
   const t = useTranslations('nav');
   const locale = useLocale();
   const pathname = usePathname();
+  const { shouldUseBlur } = useDeviceOptimizations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
@@ -41,7 +43,7 @@ export default function Header() {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg">
+      <div className={`bg-white/95 ${shouldUseBlur ? 'backdrop-blur-md' : ''} border-b border-gray-200 shadow-lg`}>
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -94,7 +96,7 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full mt-0 -ml-10 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl border border-gray-200 py-4 px-4 z-50 flex flex-col items-center gap-4 min-w-[96px]"
+                      className={`absolute top-full mt-0 -ml-10 bg-white/95 ${shouldUseBlur ? 'backdrop-blur-sm' : ''} rounded-xl shadow-xl border border-gray-200 py-4 px-4 z-50 flex flex-col items-center gap-4 min-w-[96px]`}
                     >
                       <Link
                         href={switchLocale('fr')}

@@ -5,9 +5,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { useDeviceOptimizations } from '@/hooks/useDeviceOptimizations';
 
 export default function ContactPage() {
   const t = useTranslations('contact');
+  const { shouldUseParallax } = useDeviceOptimizations();
   const heroRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -15,8 +17,8 @@ export default function ContactPage() {
     offset: ["start start", "end start"]
   });
 
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const heroY = shouldUseParallax ? useTransform(scrollYProgress, [0, 1], [0, 200]) : useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const heroOpacity = shouldUseParallax ? useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]) : useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1]);
 
   const socialLinks = [
     {

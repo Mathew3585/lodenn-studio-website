@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import { useDeviceOptimizations } from '@/hooks/useDeviceOptimizations';
 
 // Lazy load InteractiveParticles pour améliorer le LCP
 const InteractiveParticles = dynamic(() => import('@/components/InteractiveParticles'), {
@@ -17,6 +18,7 @@ import CTASection from '@/components/CTASection';
 
 export default function Home() {
   const t = useTranslations('home');
+  const { isMobile, shouldRenderParticles, shouldUseBlur, springConfig } = useDeviceOptimizations();
   const [scrollY, setScrollY] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -79,8 +81,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Particules interactives */}
-        <InteractiveParticles />
+        {/* Particules interactives - Disabled on mobile for performance */}
+        {shouldRenderParticles && <InteractiveParticles />}
 
         {/* Hero Content avec animations */}
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-4">
@@ -93,12 +95,13 @@ export default function Home() {
               className="mb-8 relative group"
             >
               <motion.div
-                animate={{
+                animate={!isMobile ? {
                   scale: [1.5, 1.8, 1.5],
                   opacity: [0.5, 0.7, 0.5]
-                }}
+                } : {}}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-primary/50 blur-3xl rounded-full"
+                className={`absolute inset-0 bg-primary/50 rounded-full ${shouldUseBlur ? 'blur-3xl' : 'blur-lg'}`}
+                style={isMobile ? { transform: 'scale(1.5)', opacity: 0.5 } : {}}
               />
               <motion.div
                 whileHover={{ scale: 1.15 }}
@@ -117,7 +120,7 @@ export default function Home() {
             </motion.div>
           ) : (
             <div className="mb-8 relative group">
-              <div className="absolute inset-0 bg-primary/50 blur-3xl rounded-full" style={{ transform: 'scale(1.5)', opacity: 0.5 }} />
+              <div className={`absolute inset-0 bg-primary/50 rounded-full ${shouldUseBlur ? 'blur-3xl' : 'blur-lg'}`} style={{ transform: 'scale(1.5)', opacity: 0.5 }} />
               <Image
                 src="/images/logo.avif"
                 alt="Lodenn Studio"
@@ -134,13 +137,13 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6, type: "spring", bounce: 0.4 }}
+            transition={{ duration: 1, delay: 0.6, ...springConfig }}
             className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 text-center"
           >
             <motion.span
-              animate={{
+              animate={!isMobile ? {
                 backgroundPosition: ["0% center", "200% center", "0% center"]
-              }}
+              } : {}}
               transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-primary drop-shadow-2xl"
               style={{ backgroundSize: "200% auto" }}
@@ -202,7 +205,7 @@ export default function Home() {
             >
               <Link
                 href="/about"
-                className="px-6 py-3 sm:px-10 sm:py-5 bg-white/10 backdrop-blur-sm border-2 border-primary text-white hover:bg-primary hover:border-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block whitespace-nowrap"
+                className={`px-6 py-3 sm:px-10 sm:py-5 bg-white/10 ${shouldUseBlur ? 'backdrop-blur-sm' : ''} border-2 border-primary text-white hover:bg-primary hover:border-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block whitespace-nowrap`}
               >
                 {t('hero.ourStudio')}
               </Link>
@@ -219,22 +222,22 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 1.8 }}
           >
             <motion.div
-              animate={{ y: [0, 10, 0] }}
+              animate={!isMobile ? { y: [0, 10, 0] } : {}}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               className="flex flex-col items-center gap-2 text-primary cursor-pointer"
             >
               <motion.span
-                animate={{ opacity: [1, 0.5, 1] }}
+                animate={!isMobile ? { opacity: [1, 0.5, 1] } : {}}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="text-sm font-bold drop-shadow-lg text-center"
               >
                 {t('hero.scrollText')}
               </motion.span>
               <motion.svg
-                animate={{
+                animate={!isMobile ? {
                   y: [0, 5, 0],
                   scale: [1, 1.1, 1]
-                }}
+                } : {}}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 className="w-7 h-7 drop-shadow-lg"
                 fill="none"
@@ -293,9 +296,9 @@ export default function Home() {
               </motion.span>
 
               <motion.h2
-                initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
-                animate={isAetherisInView ? { opacity: 1, scale: 1, rotateX: 0 } : {}}
-                transition={{ duration: 1, delay: 0.5, type: "spring", bounce: 0.4 }}
+                initial={isMobile ? { opacity: 0, y: 50 } : { opacity: 0, scale: 0.5, rotateX: 90 }}
+                animate={isAetherisInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, scale: 1, rotateX: 0 }) : {}}
+                transition={isMobile ? { duration: 0.8, delay: 0.5 } : { duration: 1, delay: 0.5, type: "spring", bounce: 0.4 }}
                 className="text-5xl sm:text-8xl lg:text-9xl font-bold mb-6 text-white drop-shadow-2xl"
               >
                 Aetheris
@@ -315,9 +318,9 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {/* Grande image principale */}
               <motion.div
-                initial={{ opacity: 0, y: 100, rotateY: -15 }}
-                animate={isAetherisInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
-                transition={{ duration: 1, delay: 1, type: "spring", bounce: 0.3 }}
+                initial={isMobile ? { opacity: 0, y: 50 } : { opacity: 0, y: 100, rotateY: -15 }}
+                animate={isAetherisInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, rotateY: 0 }) : {}}
+                transition={{ duration: 1, delay: 1, ...springConfig }}
                 className="lg:col-span-2 relative h-64 sm:h-80 lg:h-[600px] rounded-2xl overflow-hidden group"
               >
                 <Image
