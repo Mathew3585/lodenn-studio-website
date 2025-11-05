@@ -83,7 +83,7 @@ export default function Home() {
         <InteractiveParticles />
 
         {/* Hero Content avec animations */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-4">
           {/* Logo avec GROS glow orange et animations */}
           {isLoaded ? (
             <motion.div
@@ -111,7 +111,7 @@ export default function Home() {
                   height={200}
                   priority
                   fetchPriority="high"
-                  className="w-40 h-40 sm:w-56 sm:h-56 relative z-10 drop-shadow-2xl"
+                  className="w-32 h-32 sm:w-56 sm:h-56 relative z-10 drop-shadow-2xl"
                 />
               </motion.div>
             </motion.div>
@@ -125,7 +125,7 @@ export default function Home() {
                 height={200}
                 priority
                 fetchPriority="high"
-                className="w-40 h-40 sm:w-56 sm:h-56 relative z-10 drop-shadow-2xl"
+                className="w-32 h-32 sm:w-56 sm:h-56 relative z-10 drop-shadow-2xl"
               />
             </div>
           )}
@@ -135,7 +135,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, type: "spring", bounce: 0.4 }}
-            className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-6 text-center"
+            className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 text-center"
           >
             <motion.span
               animate={{
@@ -153,7 +153,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-2xl sm:text-3xl lg:text-4xl mb-4 text-center text-white max-w-3xl font-light drop-shadow-lg mx-auto"
+            className="text-xl sm:text-3xl lg:text-4xl mb-3 text-center text-white max-w-3xl font-light drop-shadow-lg mx-auto"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -162,7 +162,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
-            className="text-lg sm:text-xl mb-12 text-center text-gray-200 max-w-2xl drop-shadow-md mx-auto"
+            className="text-base sm:text-xl mb-8 sm:mb-12 text-center text-gray-200 max-w-2xl drop-shadow-md mx-auto"
           >
             {t('hero.description')}
           </motion.p>
@@ -172,7 +172,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="flex flex-col sm:flex-row gap-6 mb-16"
+            className="flex flex-col sm:flex-row gap-6 mb-16 items-center"
           >
             <motion.div
               whileHover={{ scale: 1.1, y: -5 }}
@@ -182,7 +182,7 @@ export default function Home() {
             >
               <Link
                 href="/games/aetheris"
-                className="group relative px-10 py-5 bg-primary hover:bg-primary-dark text-white font-bold text-xl rounded-xl overflow-hidden transition-all duration-300 shadow-2xl shadow-primary/50 hover:shadow-primary/70 inline-block whitespace-nowrap"
+                className="group relative px-6 py-3 sm:px-10 sm:py-5 bg-primary hover:bg-primary-dark text-white font-bold text-lg sm:text-xl rounded-xl overflow-hidden transition-all duration-300 shadow-2xl shadow-primary/50 hover:shadow-primary/70 inline-block whitespace-nowrap"
               >
                 <span className="relative z-10">{t('hero.discoverAetheris')}</span>
                 <motion.div
@@ -202,7 +202,7 @@ export default function Home() {
             >
               <Link
                 href="/about"
-                className="px-10 py-5 bg-white/10 backdrop-blur-sm border-2 border-primary text-white hover:bg-primary hover:border-primary font-bold text-xl rounded-xl transition-all duration-300 shadow-xl inline-block whitespace-nowrap"
+                className="px-6 py-3 sm:px-10 sm:py-5 bg-white/10 backdrop-blur-sm border-2 border-primary text-white hover:bg-primary hover:border-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block whitespace-nowrap"
               >
                 {t('hero.ourStudio')}
               </Link>
@@ -212,40 +212,40 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator avec animations */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
-          className="absolute bottom-8 z-10"
-          style={{ left: "calc(50% - 25px)", transform: "translateX(-50%)" }}
-        >
+        <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center">
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2 text-primary cursor-pointer"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.8 }}
           >
-            <motion.span
-              animate={{ opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="text-sm font-bold drop-shadow-lg"
-            >
-              {t('hero.scrollText')}
-            </motion.span>
-            <motion.svg
-              animate={{
-                y: [0, 5, 0],
-                scale: [1, 1.1, 1]
-              }}
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-7 h-7 drop-shadow-lg"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              className="flex flex-col items-center gap-2 text-primary cursor-pointer"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </motion.svg>
+              <motion.span
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="text-sm font-bold drop-shadow-lg text-center"
+              >
+                {t('hero.scrollText')}
+              </motion.span>
+              <motion.svg
+                animate={{
+                  y: [0, 5, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-7 h-7 drop-shadow-lg"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </motion.svg>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Section Featured Game - Aetheris en immersion totale */}
@@ -267,7 +267,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
         </motion.div>
 
-        <div className="relative z-10 py-32 px-4">
+        <div className="relative z-10 py-16 sm:py-24 lg:py-32 px-4">
           <div className="max-w-7xl mx-auto">
             {/* Badge + Titre avec animations */}
             <div className="text-center mb-16">
@@ -296,7 +296,7 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
                 animate={isAetherisInView ? { opacity: 1, scale: 1, rotateX: 0 } : {}}
                 transition={{ duration: 1, delay: 0.5, type: "spring", bounce: 0.4 }}
-                className="text-7xl sm:text-8xl lg:text-9xl font-bold mb-6 text-white drop-shadow-2xl"
+                className="text-5xl sm:text-8xl lg:text-9xl font-bold mb-6 text-white drop-shadow-2xl"
               >
                 Aetheris
               </motion.h2>
@@ -305,7 +305,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isAetherisInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-3xl sm:text-4xl text-primary font-light drop-shadow-lg"
+                className="text-xl sm:text-4xl text-primary font-light drop-shadow-lg"
               >
                 {t('aetherisSection.tagline')}
               </motion.p>
@@ -318,7 +318,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 100, rotateY: -15 }}
                 animate={isAetherisInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
                 transition={{ duration: 1, delay: 1, type: "spring", bounce: 0.3 }}
-                className="lg:col-span-2 relative h-96 lg:h-[600px] rounded-2xl overflow-hidden group"
+                className="lg:col-span-2 relative h-64 sm:h-80 lg:h-[600px] rounded-2xl overflow-hidden group"
               >
                 <Image
                   src="/images/aetheris/illu-1.webp"
@@ -334,10 +334,10 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 1.3 }}
                   className="absolute bottom-8 left-8 right-8"
                 >
-                  <h3 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
+                  <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4 drop-shadow-lg">
                     {t('aetherisSection.mainTitle')}
                   </h3>
-                  <p className="text-xl text-gray-200 max-w-2xl drop-shadow-md">
+                  <p className="text-xl text-gray-200 max-w-2xl drop-shadow-md hidden sm:block">
                     {t('aetherisSection.mainDescription')}
                   </p>
                 </motion.div>
@@ -348,7 +348,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100, rotate: -5 }}
                 animate={isAetherisInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
                 transition={{ duration: 0.8, delay: 1.2, type: "spring", bounce: 0.4 }}
-                className="relative h-72 rounded-2xl overflow-hidden group"
+                className="relative h-56 sm:h-72 rounded-2xl overflow-hidden group"
               >
                 <Image
                   src="/images/aetheris/illu-3.webp"
@@ -364,7 +364,7 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 1.5 }}
                   className="absolute bottom-6 left-6"
                 >
-                  <p className="text-2xl font-bold text-white drop-shadow-lg">{t('aetherisSection.buildBase')}</p>
+                  <p className="text-lg sm:text-2xl font-bold text-white drop-shadow-lg">{t('aetherisSection.buildBase')}</p>
                 </motion.div>
               </motion.div>
 
@@ -372,7 +372,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100, rotate: 5 }}
                 animate={isAetherisInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
                 transition={{ duration: 0.8, delay: 1.4, type: "spring", bounce: 0.4 }}
-                className="relative h-72 rounded-2xl overflow-hidden group"
+                className="relative h-56 sm:h-72 rounded-2xl overflow-hidden group"
               >
                 <Image
                   src="/images/aetheris/illu-4.webp"
@@ -388,7 +388,7 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 1.7 }}
                   className="absolute bottom-6 left-6"
                 >
-                  <p className="text-2xl font-bold text-white drop-shadow-lg">{t('aetherisSection.discoverMysteries')}</p>
+                  <p className="text-lg sm:text-2xl font-bold text-white drop-shadow-lg">{t('aetherisSection.discoverMysteries')}</p>
                 </motion.div>
               </motion.div>
             </div>
@@ -402,7 +402,7 @@ export default function Home() {
             >
               <Link
                 href="/games/aetheris"
-                className="inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white font-bold text-2xl rounded-xl transition-all duration-300 hover:scale-110 shadow-2xl shadow-primary/50 hover:shadow-primary/70 group"
+                className="inline-flex items-center gap-3 px-8 py-4 sm:px-12 sm:py-6 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white font-bold text-xl sm:text-2xl rounded-xl transition-all duration-300 hover:scale-110 shadow-2xl shadow-primary/50 hover:shadow-primary/70 group"
               >
                 <motion.span
                   animate={{ x: [0, 5, 0] }}

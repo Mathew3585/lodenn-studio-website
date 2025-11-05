@@ -81,7 +81,7 @@ export default function AetherisPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4, type: "spring", bounce: 0.3 }}
-            className="text-7xl sm:text-8xl lg:text-9xl font-bold mb-6"
+            className="text-5xl sm:text-8xl lg:text-9xl font-bold mb-6"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-primary drop-shadow-2xl">
               Aetheris
@@ -92,7 +92,7 @@ export default function AetherisPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-3xl sm:text-4xl max-w-4xl mx-auto font-light mb-8"
+            className="text-xl sm:text-4xl max-w-4xl mx-auto font-light mb-8"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -101,7 +101,7 @@ export default function AetherisPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto"
           >
             {t('hero.description')}
           </motion.p>
@@ -159,7 +159,7 @@ export default function AetherisPage() {
       */}
 
       {/* About Section */}
-      <section className="relative py-32 bg-gray-900">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-900">
         {/* Ligne de séparation orange */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -171,7 +171,7 @@ export default function AetherisPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold text-white mb-6">{t('meta.title')}</h2>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">{t('meta.title')}</h2>
           </motion.div>
 
           <motion.div
@@ -179,9 +179,9 @@ export default function AetherisPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-gray-800 to-black rounded-2xl p-12 border border-white/10 mb-16"
+            className="bg-gradient-to-br from-gray-800 to-black rounded-2xl p-6 sm:p-12 border border-white/10 mb-16"
           >
-            <p className="text-2xl text-gray-300 leading-relaxed text-center">
+            <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed text-center">
               {t('meta.description')}
             </p>
           </motion.div>
@@ -189,8 +189,8 @@ export default function AetherisPage() {
       </section>
 
       {/* Gameplay Sections - Image/Text alternating */}
-      <section className="relative py-32 bg-gradient-to-b from-gray-900 to-black">
-        <div className="max-w-7xl mx-auto px-4 space-y-32">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-gray-900 to-black">
+        <div className="max-w-7xl mx-auto px-4 space-y-16 sm:space-y-24 lg:space-y-32">
 
           {/* Section 1 - Survie (Image gauche, texte droite) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -204,7 +204,7 @@ export default function AetherisPage() {
               {/* Glow orange */}
               <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-2xl group-hover:bg-primary/50 transition-all duration-300" />
 
-              <div className="relative h-[500px] rounded-2xl overflow-hidden">
+              <div className="relative h-64 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
                   src="/images/aetheris/illu-3.webp"
                   alt={t('features.survive.title')}
@@ -220,10 +220,10 @@ export default function AetherisPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6"
+              className="space-y-6 order-2 lg:order-none"
             >
-              <h2 className="text-5xl font-bold text-white">{t('features.survive.title')}</h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <h2 className="text-3xl sm:text-5xl font-bold text-white text-center lg:text-left">{t('features.survive.title')}</h2>
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 {t('features.survive.description')}
               </p>
             </motion.div>
@@ -236,10 +236,10 @@ export default function AetherisPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 lg:order-1"
+              className="space-y-6 order-2 lg:order-1"
             >
-              <h2 className="text-5xl font-bold text-white">{t('features.create.title')}</h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <h2 className="text-3xl sm:text-5xl font-bold text-white text-center lg:text-left">{t('features.create.title')}</h2>
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 {t('features.create.description')}
               </p>
             </motion.div>
@@ -249,12 +249,12 @@ export default function AetherisPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative lg:order-2 group"
+              className="relative order-1 lg:order-2 group"
             >
               {/* Glow orange */}
               <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-2xl group-hover:bg-primary/50 transition-all duration-300" />
 
-              <div className="relative h-[500px] rounded-2xl overflow-hidden">
+              <div className="relative h-64 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
                   src="/images/aetheris/illu-4.webp"
                   alt={t('features.create.title')}
@@ -278,7 +278,7 @@ export default function AetherisPage() {
               {/* Glow orange */}
               <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-2xl group-hover:bg-primary/50 transition-all duration-300" />
 
-              <div className="relative h-[500px] rounded-2xl overflow-hidden">
+              <div className="relative h-64 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
                   src="/images/aetheris/illu-2.webp"
                   alt={t('features.explore.title')}
@@ -294,10 +294,10 @@ export default function AetherisPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6"
+              className="space-y-6 order-2 lg:order-none"
             >
-              <h2 className="text-5xl font-bold text-white">{t('features.explore.title')}</h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <h2 className="text-3xl sm:text-5xl font-bold text-white text-center lg:text-left">{t('features.explore.title')}</h2>
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 {t('features.explore.description')}
               </p>
             </motion.div>
@@ -307,7 +307,7 @@ export default function AetherisPage() {
       </section>
 
       {/* Gallery Section */}
-      <section ref={galleryRef} className="relative py-32 bg-black">
+      <section ref={galleryRef} className="relative py-16 sm:py-24 lg:py-32 bg-black">
         {/* Ligne de séparation orange */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -318,7 +318,7 @@ export default function AetherisPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold text-white mb-6">{t('gallery.title')}</h2>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">{t('gallery.title')}</h2>
             <p className="text-xl text-gray-400">{t('gallery.subtitle')}</p>
           </motion.div>
 

@@ -9,7 +9,7 @@ export default function CTASection() {
   const locale = useLocale();
 
   return (
-    <section className="relative py-28 bg-gradient-to-br from-primary via-primary to-primary-dark overflow-hidden">
+    <section className="relative py-16 sm:py-24 lg:py-28 bg-gradient-to-br from-primary via-primary to-primary-dark overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
           backgroundImage: 'url("/images/aetheris/illu-2.webp")',
@@ -22,7 +22,7 @@ export default function CTASection() {
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle, white 2px, transparent 2px)',
-          backgroundSize: '50px 50px'
+          backgroundSize: '30px 30px'
         }} />
       </div>
 
@@ -51,7 +51,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="text-5xl sm:text-6xl font-bold mb-8 text-white drop-shadow-2xl"
+            className="text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl"
           >
             {t('title')}
           </motion.h2>
@@ -61,7 +61,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl sm:text-3xl mb-12 text-white/95 drop-shadow-lg"
+            className="text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg"
           >
             {t('description')}
           </motion.p>
@@ -71,7 +71,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.4, type: "spring", bounce: 0.5 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
           >
             <motion.div
               whileHover={{ scale: 1.1, y: -5 }}
@@ -80,7 +80,7 @@ export default function CTASection() {
             >
               <Link
                 href={`/${locale}/contact`}
-                className="px-10 py-5 bg-white text-primary hover:bg-gray-100 font-bold text-xl rounded-xl transition-all duration-300 shadow-2xl hover:shadow-white/30 inline-block"
+                className="px-6 py-3 sm:px-10 sm:py-5 bg-white text-primary hover:bg-gray-100 font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-2xl hover:shadow-white/30 inline-block"
               >
                 {t('contact')}
               </Link>
@@ -95,7 +95,7 @@ export default function CTASection() {
                 href="https://twitter.com/lodennstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-white/20 backdrop-blur-sm border-3 border-white text-white hover:bg-white hover:text-primary font-bold text-xl rounded-xl transition-all duration-300 shadow-xl inline-block"
+                className="px-6 py-3 sm:px-10 sm:py-5 bg-white/20 backdrop-blur-sm border-3 border-white text-white hover:bg-white hover:text-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block"
               >
                 {t('twitter')}
               </a>

@@ -19,6 +19,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isEnglish = locale === 'en';
 
   return {
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+      maximumScale: 5,
+      userScalable: true,
+    },
     icons: {
       icon: '/favicon.avif',
       shortcut: '/favicon.avif',

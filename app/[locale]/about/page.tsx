@@ -58,7 +58,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4, type: "spring", bounce: 0.3 }}
-            className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-6 text-white"
+            className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 text-white"
           >
             {t('hero.title')}
           </motion.h1>
@@ -67,7 +67,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl sm:text-3xl max-w-3xl mx-auto font-light"
+            className="text-xl sm:text-3xl max-w-3xl mx-auto font-light"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -86,15 +86,15 @@ export default function AboutPage() {
       </section>
 
       {/* Notre Histoire - Layout moderne */}
-      <section ref={storyRef} className="relative py-32 bg-gradient-to-b from-black to-gray-900">
+      <section ref={storyRef} className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Image */}
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={isStoryInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1 }}
-              className="relative h-[500px] rounded-2xl overflow-hidden"
+              className="relative h-64 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden"
             >
               <Image
                 src="/images/aetheris/illu-1.webp"
@@ -104,9 +104,9 @@ export default function AboutPage() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-8 left-8">
-                <p className="text-primary font-bold text-xl">{t('story.founded')}</p>
-                <p className="text-white text-3xl font-bold">{t('story.location')}</p>
+              <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8">
+                <p className="text-primary font-bold text-base sm:text-xl">{t('story.founded')}</p>
+                <p className="text-white text-xl sm:text-3xl font-bold">{t('story.location')}</p>
               </div>
             </motion.div>
 
@@ -115,18 +115,18 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 100 }}
               animate={isStoryInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-6 order-2 lg:order-none"
             >
-              <h2 className="text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 text-center lg:text-left">
                 {t('story.title')}
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 <span className="text-primary font-bold">Lodenn Studio</span> {t('story.paragraph1')}
               </p>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 {t('story.paragraph2')} <span className="text-primary font-bold">Aetheris</span>{t('story.paragraph2b')}
               </p>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 {t('story.paragraph3')}
               </p>
             </motion.div>

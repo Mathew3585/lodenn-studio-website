@@ -97,7 +97,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4, type: "spring", bounce: 0.3 }}
-            className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-6 text-white"
+            className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 text-white"
           >
             {t('hero.title')}
           </motion.h1>
@@ -106,7 +106,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl sm:text-3xl max-w-3xl mx-auto font-light"
+            className="text-xl sm:text-3xl max-w-3xl mx-auto font-light"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -125,9 +125,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Content */}
-      <section className="relative py-32 bg-gradient-to-b from-black to-gray-900">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -135,8 +135,8 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-white mb-6">{t('form.title')}</h2>
-              <p className="text-gray-400 mb-8 text-lg">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">{t('form.title')}</h2>
+              <p className="text-gray-400 mb-8 text-base sm:text-lg">
                 {t('form.description')}
               </p>
               <ContactForm />
@@ -150,8 +150,8 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="mb-12">
-                <h2 className="text-4xl font-bold text-white mb-6">{t('social.title')}</h2>
-                <p className="text-gray-400 mb-8 text-lg">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">{t('social.title')}</h2>
+                <p className="text-gray-400 mb-8 text-base sm:text-lg">
                   {t('social.subtitle')}
                 </p>
 
@@ -163,14 +163,14 @@ export default function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ x: 10, scale: 1.02 }}
-                      className="flex items-center p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-200 group"
+                      className="flex items-center p-4 sm:p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-200 group"
                     >
-                      <div className="text-primary group-hover:text-primary-light transition-colors duration-200 mr-4">
+                      <div className="text-primary group-hover:text-primary-light transition-colors duration-200 mr-3 sm:mr-4">
                         {social.icon}
                       </div>
                       <div className="flex-1">
-                        <p className="font-bold text-white text-lg">{social.name}</p>
-                        <p className="text-sm text-gray-400">{social.handle}</p>
+                        <p className="font-bold text-white text-base sm:text-lg">{social.name}</p>
+                        <p className="text-xs sm:text-sm text-gray-400">{social.handle}</p>
                       </div>
                       <svg
                         className="w-6 h-6 text-gray-600 group-hover:text-primary transition-colors duration-200"
@@ -196,27 +196,27 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-gradient-to-br from-primary/20 to-primary-dark/20 rounded-2xl p-8 border border-primary/30"
+                className="bg-gradient-to-br from-primary/20 to-primary-dark/20 rounded-2xl p-6 sm:p-8 border border-primary/30"
               >
-                <h3 className="text-2xl font-bold mb-6 text-white">{t('info.title')}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-6 text-white">{t('info.title')}</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-primary mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-gray-300 text-lg">{t('info.response')}</span>
+                    <span className="text-gray-300 text-base sm:text-lg">{t('info.response')}</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-primary mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-gray-300 text-lg">{t('info.location')}</span>
+                    <span className="text-gray-300 text-base sm:text-lg">{t('info.location')}</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-primary mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-gray-300 text-lg">{t('info.collaboration')}</span>
+                    <span className="text-gray-300 text-base sm:text-lg">{t('info.collaboration')}</span>
                   </li>
                 </ul>
               </motion.div>
@@ -226,7 +226,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-32 bg-gray-900">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-gray-900">
         {/* Ligne de séparation orange */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -236,10 +236,10 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-5xl font-bold text-white mb-6">{t('faq.title')}</h2>
-            <p className="text-xl text-gray-400">Vous avez des questions ? On a des réponses !</p>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">{t('faq.title')}</h2>
+            <p className="text-base sm:text-xl text-gray-400">Vous avez des questions ? On a des réponses !</p>
           </motion.div>
 
           <div className="space-y-6">
@@ -267,10 +267,10 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-gray-800 to-black rounded-2xl p-8 border border-white/10 hover:border-primary/30 transition-colors duration-300"
+                className="bg-gradient-to-br from-gray-800 to-black rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-primary/30 transition-colors duration-300"
               >
-                <h3 className="text-2xl font-bold mb-4 text-white">{faq.question}</h3>
-                <p className="text-gray-400 text-lg leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">{faq.question}</h3>
+                <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
                   {faq.answer}
                 </p>
               </motion.div>
