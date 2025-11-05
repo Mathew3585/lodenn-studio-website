@@ -119,7 +119,8 @@ export default function AetherisPage() {
         </motion.div>
       </section>
 
-      {/* Trailer Section */}
+      {/* Trailer Section - Commented out until trailer is ready */}
+      {/*
       <section className="relative py-32 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
@@ -155,6 +156,7 @@ export default function AetherisPage() {
           </p>
         </div>
       </section>
+      */}
 
       {/* About Section */}
       <section className="relative py-32 bg-gray-900">
