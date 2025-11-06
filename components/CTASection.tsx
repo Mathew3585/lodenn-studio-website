@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { useDeviceOptimizations } from '@/hooks/useDeviceOptimizations';
+import { useMobileAnimations } from '@/hooks/useMobileAnimations';
 
 export default function CTASection() {
   const t = useTranslations('cta');
   const locale = useLocale();
   const { isMobile, shouldUseBlur } = useDeviceOptimizations();
+  const ctaAnim = useMobileAnimations();
 
   return (
     <section className="relative py-16 sm:py-24 lg:py-28 bg-gradient-to-br from-primary via-primary to-primary-dark overflow-hidden">
@@ -51,9 +53,9 @@ export default function CTASection() {
       )}
 
       <div className="section-container relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div ref={ctaAnim.ref} className="max-w-4xl mx-auto text-center">
           {isMobile ? (
-            <h2 className="text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl">
+            <h2 className={`text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl ${ctaAnim.isVisible ? 'animate-mobile-fade-in-up' : 'mobile-animate-init'}`}>
               {t('title')}
             </h2>
           ) : (
@@ -69,7 +71,7 @@ export default function CTASection() {
           )}
 
           {isMobile ? (
-            <p className="text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg">
+            <p className={`text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg ${ctaAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-200' : 'mobile-animate-init'}`}>
               {t('description')}
             </p>
           ) : (
@@ -85,7 +87,7 @@ export default function CTASection() {
           )}
 
           {isMobile ? (
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center ${ctaAnim.isVisible ? 'animate-mobile-scale-in animate-delay-300' : 'mobile-animate-init'}`}>
               <div>
                 <Link
                   href={`/${locale}/contact`}
