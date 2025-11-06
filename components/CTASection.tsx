@@ -52,61 +52,97 @@ export default function CTASection() {
 
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl"
-          >
-            {t('title')}
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg"
-          >
-            {t('description')}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.4, type: "spring", bounce: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
-          >
-            <motion.div
-              whileHover={{ scale: 1.1, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", bounce: 0.5 }}
+          {isMobile ? (
+            <h2 className="text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl">
+              {t('title')}
+            </h2>
+          ) : (
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+              className="text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl"
             >
-              <Link
-                href={`/${locale}/contact`}
-                className="px-6 py-3 sm:px-10 sm:py-5 bg-white text-primary hover:bg-gray-100 font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-2xl hover:shadow-white/30 inline-block"
-              >
-                {t('contact')}
-              </Link>
-            </motion.div>
+              {t('title')}
+            </motion.h2>
+          )}
 
-            <motion.div
-              whileHover={{ scale: 1.1, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", bounce: 0.5 }}
+          {isMobile ? (
+            <p className="text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg">
+              {t('description')}
+            </p>
+          ) : (
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg"
             >
-              <a
-                href="https://twitter.com/lodennstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`px-6 py-3 sm:px-10 sm:py-5 bg-white/20 ${shouldUseBlur ? 'backdrop-blur-sm' : ''} border-3 border-white text-white hover:bg-white hover:text-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block`}
+              {t('description')}
+            </motion.p>
+          )}
+
+          {isMobile ? (
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+              <div>
+                <Link
+                  href={`/${locale}/contact`}
+                  className="px-6 py-3 sm:px-10 sm:py-5 bg-white text-primary hover:bg-gray-100 font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-2xl hover:shadow-white/30 inline-block"
+                >
+                  {t('contact')}
+                </Link>
+              </div>
+
+              <div>
+                <a
+                  href="https://twitter.com/lodennstudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-6 py-3 sm:px-10 sm:py-5 bg-white/20 ${shouldUseBlur ? 'backdrop-blur-sm' : ''} border-3 border-white text-white hover:bg-white hover:text-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block`}
+                >
+                  {t('twitter')}
+                </a>
+              </div>
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.4, type: "spring", bounce: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", bounce: 0.5 }}
               >
-                {t('twitter')}
-              </a>
+                <Link
+                  href={`/${locale}/contact`}
+                  className="px-6 py-3 sm:px-10 sm:py-5 bg-white text-primary hover:bg-gray-100 font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-2xl hover:shadow-white/30 inline-block"
+                >
+                  {t('contact')}
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", bounce: 0.5 }}
+              >
+                <a
+                  href="https://twitter.com/lodennstudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-6 py-3 sm:px-10 sm:py-5 bg-white/20 ${shouldUseBlur ? 'backdrop-blur-sm' : ''} border-3 border-white text-white hover:bg-white hover:text-primary font-bold text-lg sm:text-xl rounded-xl transition-all duration-300 shadow-xl inline-block`}
+                >
+                  {t('twitter')}
+                </a>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          )}
         </div>
       </div>
     </section>
