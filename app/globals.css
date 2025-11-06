@@ -126,8 +126,13 @@
     animation-delay: 0.5s;
   }
 
-  /* État initial pour éviter le flash */
+  /* État initial pour éviter le flash - sans !important pour permettre les animations */
   .mobile-animate-init {
     opacity: 0;
+  }
+
+  /* Quand l'animation est prête, on enlève l'état initial */
+  .mobile-animate-ready {
+    opacity: 1;
   }
 }
