@@ -318,9 +318,9 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {/* Grande image principale */}
               <motion.div
-                initial={isMobile ? { opacity: 0, y: 50 } : { opacity: 0, y: 100, rotateY: -15 }}
-                animate={isAetherisInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, rotateY: 0 }) : {}}
-                transition={isMobile ? { duration: 0.8, delay: 1 } : { duration: 1, delay: 1, type: "spring", bounce: 0.3 }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isAetherisInView ? { opacity: 1, y: 0 } : {}}
+                transition={isMobile ? { duration: 0.6, delay: 0.8 } : { duration: 1, delay: 1, type: "spring", bounce: 0.3 }}
                 className="lg:col-span-2 relative h-64 sm:h-80 lg:h-[600px] rounded-2xl overflow-hidden group"
               >
                 <Image
@@ -328,7 +328,7 @@ export default function Home() {
                   alt="Aetheris"
                   fill
                   loading="lazy"
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  className={`object-cover transition-transform duration-700 ${!isMobile ? 'group-hover:scale-110' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <motion.div
@@ -348,9 +348,9 @@ export default function Home() {
 
               {/* 2 images secondaires avec stagger */}
               <motion.div
-                initial={{ opacity: 0, x: -100, rotate: -5 }}
-                animate={isAetherisInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
-                transition={{ duration: 0.8, delay: 1.2, type: "spring", bounce: 0.4 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isAetherisInView ? { opacity: 1, y: 0 } : {}}
+                transition={isMobile ? { duration: 0.5, delay: 1 } : { duration: 0.8, delay: 1.2, type: "spring", bounce: 0.4 }}
                 className="relative h-56 sm:h-72 rounded-2xl overflow-hidden group"
               >
                 <Image
@@ -358,7 +358,7 @@ export default function Home() {
                   alt="Aetheris"
                   fill
                   loading="lazy"
-                  className="object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
+                  className={`object-cover transition-all duration-700 ${!isMobile ? 'group-hover:scale-110 group-hover:rotate-2' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <motion.div
@@ -372,9 +372,9 @@ export default function Home() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 100, rotate: 5 }}
-                animate={isAetherisInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
-                transition={{ duration: 0.8, delay: 1.4, type: "spring", bounce: 0.4 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isAetherisInView ? { opacity: 1, y: 0 } : {}}
+                transition={isMobile ? { duration: 0.5, delay: 1.1 } : { duration: 0.8, delay: 1.4, type: "spring", bounce: 0.4 }}
                 className="relative h-56 sm:h-72 rounded-2xl overflow-hidden group"
               >
                 <Image
@@ -382,7 +382,7 @@ export default function Home() {
                   alt="Aetheris"
                   fill
                   loading="lazy"
-                  className="object-cover group-hover:scale-110 group-hover:-rotate-2 transition-all duration-700"
+                  className={`object-cover transition-all duration-700 ${!isMobile ? 'group-hover:scale-110 group-hover:-rotate-2' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <motion.div
