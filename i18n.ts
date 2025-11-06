@@ -10,7 +10,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   
   // Validation que la locale demandée est supportée
   if (!locale || !locales.includes(locale as Locale)) {
-    locale = 'fr'; // Fallback to French
+    locale = 'en'; // Fallback to English by default
   }
 
   return {

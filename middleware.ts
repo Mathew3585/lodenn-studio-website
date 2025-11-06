@@ -4,11 +4,11 @@ export default createMiddleware({
   // Liste des langues supportées
   locales: ['fr', 'en'],
 
-  // Langue par défaut
-  defaultLocale: 'fr',
+  // Langue par défaut - anglais pour tous les visiteurs
+  defaultLocale: 'en',
 
-  // Détection automatique de la langue basée sur Accept-Language header
-  localeDetection: true,
+  // Détection automatique DÉSACTIVÉE - l'utilisateur choisit manuellement sa langue
+  localeDetection: false,
 
   // Préfixe toujours présent dans l'URL (même pour la locale par défaut)
   localePrefix: 'always'

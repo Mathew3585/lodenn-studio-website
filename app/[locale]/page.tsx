@@ -297,7 +297,7 @@ export default function Home() {
 
               <motion.h2
                 initial={isMobile ? { opacity: 0, y: 50 } : { opacity: 0, scale: 0.5, rotateX: 90 }}
-                animate={isAetherisInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, scale: 1, rotateX: 0 }) : {}}
+                animate={isAetherisInView ? (isMobile ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : { opacity: 1, scale: 1, rotateX: 0 }) : {}}
                 transition={isMobile ? { duration: 0.8, delay: 0.5 } : { duration: 1, delay: 0.5, type: "spring", bounce: 0.4 }}
                 className="text-5xl sm:text-8xl lg:text-9xl font-bold mb-6 text-white drop-shadow-2xl"
               >
