@@ -8,9 +8,13 @@ import { useEffect, useRef, useState } from 'react';
  */
 export function useMobileAnimations() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Marquer comme monté immédiatement
+    setIsMounted(true);
+
     const element = ref.current;
     if (!element) return;
 
@@ -37,5 +41,5 @@ export function useMobileAnimations() {
     };
   }, []);
 
-  return { ref, isVisible };
+  return { ref, isVisible, isMounted };
 }

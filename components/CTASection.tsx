@@ -55,7 +55,7 @@ export default function CTASection() {
       <div className="section-container relative z-10">
         <div ref={ctaAnim.ref} className="max-w-4xl mx-auto text-center">
           {isMobile ? (
-            <h2 className={`text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl ${ctaAnim.isVisible ? 'animate-mobile-fade-in-up' : 'mobile-animate-init'}`}>
+            <h2 className={`text-3xl sm:text-6xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl ${ctaAnim.isMounted && ctaAnim.isVisible ? 'animate-mobile-fade-in-up' : 'mobile-animate-init'}`}>
               {t('title')}
             </h2>
           ) : (
@@ -71,7 +71,7 @@ export default function CTASection() {
           )}
 
           {isMobile ? (
-            <p className={`text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg ${ctaAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-200' : 'mobile-animate-init'}`}>
+            <p className={`text-lg sm:text-3xl mb-8 sm:mb-12 text-white/95 drop-shadow-lg ${ctaAnim.isMounted && ctaAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-200' : 'mobile-animate-init'}`}>
               {t('description')}
             </p>
           ) : (
@@ -87,7 +87,7 @@ export default function CTASection() {
           )}
 
           {isMobile ? (
-            <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center ${ctaAnim.isVisible ? 'animate-mobile-scale-in animate-delay-300' : 'mobile-animate-init'}`}>
+            <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center ${ctaAnim.isMounted && ctaAnim.isVisible ? 'animate-mobile-scale-in animate-delay-300' : 'mobile-animate-init'}`}>
               <div>
                 <Link
                   href={`/${locale}/contact`}

@@ -93,7 +93,7 @@ export default function Home() {
         <div ref={heroAnim.ref} className="relative z-10 h-full flex flex-col items-center justify-center px-6 sm:px-4">
           {/* Logo avec GROS glow orange et animations */}
           {isMobile ? (
-            <div className={`mb-8 relative group ${heroAnim.isVisible ? 'animate-mobile-scale-in' : 'mobile-animate-init'}`}>
+            <div className={`mb-8 relative group ${heroAnim.isMounted && heroAnim.isVisible ? 'animate-mobile-scale-in' : 'mobile-animate-init'}`}>
               <div className={`absolute inset-0 bg-primary/50 rounded-full ${shouldUseBlur ? 'blur-3xl' : 'blur-lg'}`} style={{ transform: 'scale(1.5)', opacity: 0.5 }} />
               <Image
                 src="/images/logo.avif"
@@ -152,7 +152,7 @@ export default function Home() {
 
           {/* Titre avec gradient orange et animation */}
           {isMobile ? (
-            <h1 className={`text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 text-center ${heroAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-100' : 'mobile-animate-init'}`}>
+            <h1 className={`text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 text-center ${heroAnim.isMounted && heroAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-100' : 'mobile-animate-init'}`}>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-primary drop-shadow-2xl">
                 Lodenn Studio
               </span>
@@ -178,7 +178,7 @@ export default function Home() {
           )}
 
           {isMobile ? (
-            <p className={`text-xl sm:text-3xl lg:text-4xl mb-3 text-center text-white max-w-3xl font-light drop-shadow-lg mx-auto ${heroAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-200' : 'mobile-animate-init'}`}>
+            <p className={`text-xl sm:text-3xl lg:text-4xl mb-3 text-center text-white max-w-3xl font-light drop-shadow-lg mx-auto ${heroAnim.isMounted && heroAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-200' : 'mobile-animate-init'}`}>
               {t('hero.subtitle')}
             </p>
           ) : (
@@ -193,7 +193,7 @@ export default function Home() {
           )}
 
           {isMobile ? (
-            <p className={`text-base sm:text-xl mb-8 sm:mb-12 text-center text-gray-200 max-w-2xl drop-shadow-md mx-auto ${heroAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-300' : 'mobile-animate-init'}`}>
+            <p className={`text-base sm:text-xl mb-8 sm:mb-12 text-center text-gray-200 max-w-2xl drop-shadow-md mx-auto ${heroAnim.isMounted && heroAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-300' : 'mobile-animate-init'}`}>
               {t('hero.description')}
             </p>
           ) : (
@@ -209,7 +209,7 @@ export default function Home() {
 
           {/* Boutons CTA - Orange vif avec animations */}
           {isMobile ? (
-            <div className={`flex flex-col sm:flex-row gap-6 mb-16 items-center ${heroAnim.isVisible ? 'animate-mobile-scale-in animate-delay-400' : 'mobile-animate-init'}`}>
+            <div className={`flex flex-col sm:flex-row gap-6 mb-16 items-center ${heroAnim.isMounted && heroAnim.isVisible ? 'animate-mobile-scale-in animate-delay-400' : 'mobile-animate-init'}`}>
               <div className="flex-shrink-0">
                 <Link
                   href="/games/aetheris"
@@ -363,7 +363,7 @@ export default function Home() {
             {/* Badge + Titre avec animations */}
             <div className="text-center mb-16">
               {isMobile ? (
-                <span className={`inline-block px-6 py-3 bg-primary text-white rounded-full text-sm font-bold mb-8 shadow-2xl shadow-primary/50 ${aetherisAnim.isVisible ? 'animate-mobile-scale-in' : 'mobile-animate-init'}`}>
+                <span className={`inline-block px-6 py-3 bg-primary text-white rounded-full text-sm font-bold mb-8 shadow-2xl shadow-primary/50 ${aetherisAnim.isMounted && aetherisAnim.isVisible ? 'animate-mobile-scale-in' : 'mobile-animate-init'}`}>
                   {t('aetherisSection.badge')}
                 </span>
               ) : (
@@ -390,7 +390,7 @@ export default function Home() {
               )}
 
               {isMobile ? (
-                <h2 className={`text-5xl sm:text-8xl lg:text-9xl font-bold mb-6 text-white drop-shadow-2xl ${aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-100' : 'mobile-animate-init'}`}>
+                <h2 className={`text-5xl sm:text-8xl lg:text-9xl font-bold mb-6 text-white drop-shadow-2xl ${aetherisAnim.isMounted && aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-100' : 'mobile-animate-init'}`}>
                   Aetheris
                 </h2>
               ) : (
@@ -405,7 +405,7 @@ export default function Home() {
               )}
 
               {isMobile ? (
-                <p className={`text-xl sm:text-4xl text-primary font-light drop-shadow-lg ${aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-200' : 'mobile-animate-init'}`}>
+                <p className={`text-xl sm:text-4xl text-primary font-light drop-shadow-lg ${aetherisAnim.isMounted && aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-200' : 'mobile-animate-init'}`}>
                   {t('aetherisSection.tagline')}
                 </p>
               ) : (
@@ -424,7 +424,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {/* Grande image principale */}
               {isMobile ? (
-                <div className={`lg:col-span-2 relative h-64 sm:h-80 lg:h-[600px] rounded-2xl overflow-hidden group ${aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-300' : 'mobile-animate-init'}`}>
+                <div className={`lg:col-span-2 relative h-64 sm:h-80 lg:h-[600px] rounded-2xl overflow-hidden group ${aetherisAnim.isMounted && aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-300' : 'mobile-animate-init'}`}>
                   <Image
                     src="/images/aetheris/illu-1.webp"
                     alt="Aetheris"
@@ -475,7 +475,7 @@ export default function Home() {
 
               {/* 2 images secondaires avec stagger */}
               {isMobile ? (
-                <div className={`relative h-56 sm:h-72 rounded-2xl overflow-hidden group ${aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-400' : 'mobile-animate-init'}`}>
+                <div className={`relative h-56 sm:h-72 rounded-2xl overflow-hidden group ${aetherisAnim.isMounted && aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-400' : 'mobile-animate-init'}`}>
                   <Image
                     src="/images/aetheris/illu-3.webp"
                     alt="Aetheris"
@@ -515,7 +515,7 @@ export default function Home() {
               )}
 
               {isMobile ? (
-                <div className={`relative h-56 sm:h-72 rounded-2xl overflow-hidden group ${aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-500' : 'mobile-animate-init'}`}>
+                <div className={`relative h-56 sm:h-72 rounded-2xl overflow-hidden group ${aetherisAnim.isMounted && aetherisAnim.isVisible ? 'animate-mobile-fade-in-up animate-delay-500' : 'mobile-animate-init'}`}>
                   <Image
                     src="/images/aetheris/illu-4.webp"
                     alt="Aetheris"
@@ -557,7 +557,7 @@ export default function Home() {
 
             {/* CTA avec animation */}
             {isMobile ? (
-              <div className={`text-center ${aetherisAnim.isVisible ? 'animate-mobile-scale-in animate-delay-500' : 'mobile-animate-init'}`}>
+              <div className={`text-center ${aetherisAnim.isMounted && aetherisAnim.isVisible ? 'animate-mobile-scale-in animate-delay-500' : 'mobile-animate-init'}`}>
                 <Link
                   href="/games/aetheris"
                   className="inline-flex items-center gap-3 px-8 py-4 sm:px-12 sm:py-6 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white font-bold text-xl sm:text-2xl rounded-xl transition-all duration-300 shadow-2xl shadow-primary/50 hover:shadow-primary/70 group"
